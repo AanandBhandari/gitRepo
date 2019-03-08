@@ -1,16 +1,18 @@
 import React from 'react';
+import PropTypes from 'prop-types'
+import FileListItem from './fileListItems'
 const FileList = ({ files }) => {
     return (
         <table className="file-list">
             <tbody>
                 {
-                    files.map(file => (
-                        <tr className="file-list-item" key={file.id}>
-                            <td className="file-name">{file.name}</td> </tr>
-                    ))}
+                    files.map(file => <FileListItem key={file.id} file={file}/>)
+                }
             </tbody>
         </table>
     )
 
 }
+FileList.propTypes = { files: PropTypes.array };
+
 export default FileList;
